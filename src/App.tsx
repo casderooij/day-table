@@ -1,10 +1,14 @@
-import type { Component } from 'solid-js';
+import { Component, Index } from "solid-js";
+
+const HOURS_IN_DAY = Array.from({ length: 24 }, (_, i) => i);
 
 const App: Component = () => {
   return (
-    <p class="text-4xl text-green-700 text-center py-20">
-      Hello <a class="text-pink-600 hover:font-bold hover:border-1" href="https://antfu.me/posts/reimagine-atomic-css" target="atomic-css">Atomic CSS</a>!
-    </p>
+    <div class="p-4">
+      <div class="flex justify-between">
+        <Index each={HOURS_IN_DAY}>{(hour) => <div>{hour()}</div>}</Index>
+      </div>
+    </div>
   );
 };
 
